@@ -1,6 +1,6 @@
 package com.xzy.spring.cloud.weather.controller;
 
-import com.xzy.spring.cloud.weather.service.CityClient;
+import com.xzy.spring.cloud.weather.service.DataClient;
 import com.xzy.spring.cloud.weather.service.WeatherReportService;
 import com.xzy.spring.cloud.weather.vo.City;
 import org.slf4j.Logger;
@@ -28,7 +28,7 @@ public class WeatherReportController {
     private static final Logger LOGGER = LoggerFactory.getLogger(WeatherReportController.class);
 
     @Autowired
-    private CityClient cityClient;
+    private DataClient dataClient;
     @Autowired
     private WeatherReportService weatherReportService;
 
@@ -38,7 +38,7 @@ public class WeatherReportController {
         //TODO 改为城市数据api服务提供数据
         List<City> cityList = null;
         try {
-            cityList = cityClient.listCity();
+            cityList = dataClient.listCity();
         } catch (Exception e) {
            LOGGER.error("exception",e);
         }

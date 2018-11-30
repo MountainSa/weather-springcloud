@@ -1,6 +1,6 @@
 package com.xzy.spring.cloud.weather.service.impl;
 
-import com.xzy.spring.cloud.weather.service.WeatherClient;
+import com.xzy.spring.cloud.weather.service.DataClient;
 import com.xzy.spring.cloud.weather.service.WeatherReportService;
 import com.xzy.spring.cloud.weather.vo.Weather;
 import com.xzy.spring.cloud.weather.vo.WeatherResponse;
@@ -18,11 +18,11 @@ import org.springframework.stereotype.Service;
 public class WeatherReportServiceImpl implements WeatherReportService {
 
     @Autowired
-    public WeatherClient weatherClient;
+    public DataClient dataClient;
 
     @Override
     public Weather getDataByCityId(String cityId) {
-        WeatherResponse resp = weatherClient.getDataByCityId(cityId);
+        WeatherResponse resp = dataClient.getDataByCityId(cityId);
         Weather data = resp.getData();
         return data;
     }
